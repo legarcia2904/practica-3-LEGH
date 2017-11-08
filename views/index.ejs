@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="biblioApp">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+  <body ng-controller="LibroCtrl">
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %> <%= saludo %> </p>
+    <input type="text" ng-model="libro.titulo" placeholder="insertar titulo">
+    <input type="text" ng-model="libro.autor" placeholder="insertar autor">
+    <input type="text" ng-model="libro.anio" placeholder="insertar año">
+    <button ng-click="addLibro()">Guardar</button>
+    <button ng-click="getLibros()">Cargar</button>
+    {{titulo}}
+    <div ng-repeat="libro in libros" ng-click="showInfo(libro)">
+    	<p>Titulo : <strong>{{libro.titulo}}</strong></p>
+    	<p>Autor : <strong>{{libro.autor}}</strong></p>
+    	<p>Año : <strong>{{libro.anio}}</strong></p>
+    </div>
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="/js/controllers/biblioCtrl.js"></script>
+    <script type="text/javascript" src="/js/services/biblioServ.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "ejemploapi",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Dago Cruz <dago.crusa@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dagocruz/ejemplo-MongoDB",
+  "dependencies": {
+    "angular": "^1.6.6",
+    "bootstrap": "^3.3.7",
+    "components-font-awesome": "^4.7.0"
+  }
+}
