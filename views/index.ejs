@@ -11,23 +11,21 @@
     <h1><%= title %></h1>
 
     <!--Datos-->
-    <div class="panel panel-primary">
+    <div class="panel panel-default">
         <div class="panel-heading">Libros</div>
         <div class="panel-body">
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>No</th>
-                    <th>Título</th>
-                    <th>Autor</th>
-                    <th>Año</th>
-                    <th>Género</th>
-                    <th></th>
+                    <td>Título</td>
+                    <td>Autor</td>
+                    <td>Año</td>
+                    <td>Género</td>
+                    <td></td>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="libro in libros" >
-                    <td>{{$index + 1}}</td>
                     <td>{{libro.titulo}}</td>
                     <td>{{libro.autor}}</td>
                     <td>{{libro.anio}}</td>
@@ -45,7 +43,7 @@
     </div>
     <!-- fin Datos -->
     <!--Inicio Formulario-->
-    <div class="panel panel-primary">
+    <div class="panel panel-default">
         <div class="panel-heading">Formulario</div>
         <div class="panel-body">
             <div class="row">
@@ -72,8 +70,10 @@
                 </div>
             </div>
 
-            <button class="btn btn-info button" ng-click="addLibro()">Crear</button>&nbsp;&nbsp;
-            <button class="btn btn-info button" ng-click="updateLibro(libro)">Modificar</button>
+            <button type="button" class="btn btn-danger" ng-click="addLibro()">Crear</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger" ng-click="updateLibro(libro)">Modificar</button>
+            <!--<button class="btn btn-info button" ng-click="updateLibro(libro)">Modificar</button>-->
+            <!--<button type="button" class="btn btn-danger">Danger</button>-->
         </div>
     </div>
     <!--Fin Formulario-->
