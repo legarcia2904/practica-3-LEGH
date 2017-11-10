@@ -1,39 +1,90 @@
 <!DOCTYPE html>
-<html lang="es" ng-app="biblioApp">
+<html ng-app="biblioApp">
   <head>
+    <link rel="stylesheet" href="">
     <title><%= title %></title>
     <link rel='stylesheet' href='/css/style.css' />
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/components-font-awesome/css/font-awesome.css">
   </head>
-  <body ng-controller="LibroCtrl">
+  <body ng-controller="LibroController">
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %> <%= saludo %> </p>
 
-    <div class="container">
-      <div class="row">
+    <!--Datos-->
+    <div class="panel panel-primary">
+        <div class="panel-heading">Libros</div>
+        <div class="panel-body">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Año</th>
+                    <th>Género</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="libro in libros" >
+                    <td>{{$index + 1}}</td>
+                    <td>{{libro.titulo}}</td>
+                    <td>{{libro.autor}}</td>
+                    <td>{{libro.anio}}</td>
+                    <td>{{libro.genero}}</td>
+                    <td>
+                        <a ng-click="findLibro(libro._id)" title="Listar"><span class="fa fa-eye fa-fw"></span></a>&nbsp;&nbsp;&nbsp;
+                        <a ng-click="showLibro(libro._id)" title="Modificar"><span class="fa fa-pencil fa-fw"></span></a>&nbsp;&nbsp;
+                        <a ng-click="deleteLibro(libro._id)" title="Borrar"><span class="fa fa-trash fa-fw"></span></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
-        <div class="col-sm-4">
-          <input type="text" ng-model="libro.titulo" placeholder="insertar titulo">
-          <input type="text" ng-model="libro.autor" placeholder="insertar autor">
-          <input type="text" ng-model="libro.anio" placeholder="insertar año">
         </div>
-        <div class="col-sm-4">
-          <button ng-click="addLibro()">Guardar</button>
-          <button ng-click="getLibros()">Cargar</button>
-        </div>
-        <div class="col-sm-4">
-          <div ng-repeat="libro in libros" ng-click="showInfo(libro)">
-              <p>Titulo : <strong>{{libro.titulo}}</strong></p>
-              <p>Autor : <strong>{{libro.autor}}</strong></p>
-              <p>Año : <strong>{{libro.anio}}</strong></p>
-          </div>
-        </div>
-      </div>
     </div>
-    <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+    <!-- fin Datos -->
+    <!--Inicio Formulario-->
+    <div class="panel panel-primary">
+        <div class="panel-heading">Formulario</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <input id="titulo" class="form-control" type="hidden" ng-model="libro._id"><br>
+                        <div class="col-md-3">
+                            <label for="titulo">Título</label>
+                            <input id="titulo" class="form-control" type="text" ng-model="libro.titulo"><br>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="autor">Autor</label>
+                            <input id="autor" class="form-control" type="text" ng-model="libro.autor"><br>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="anio">Año</label>
+                            <input id="anio" class="form-control" type="number" ng-model="libro.anio"><br>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="genero">Género</label>
+                            <input id="genero" class="form-control" type="text" ng-model="libro.genero"><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-info button" ng-click="addLibro()">Crear</button>&nbsp;&nbsp;
+            <button class="btn btn-info button" ng-click="updateLibro(libro)">Modificar</button>
+        </div>
+    </div>
+    <!--Fin Formulario-->
+
+  </body>
+    <!-- Scripts -->
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="/lib/angular/angular.js"></script>
-    <script type="text/javascript" src="/js/controllers/biblioCtrl.js"></script>
     <script type="text/javascript" src="/js/services/biblioServ.js"></script>
+    <script type="text/javascript" src="/js/controllers/biblioCtrl.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>

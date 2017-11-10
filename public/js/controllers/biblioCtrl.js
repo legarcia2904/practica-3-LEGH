@@ -1,33 +1,40 @@
+angular.module('controladores.biblioteca', ['servicios.biblioteca']).controller('LibroController', LibroController);
 
-angular.module('controladores.biblioteca',['servicios.biblioteca'])
-	.controller('LibroCtrl',LibroCtrl);
+function LibroController($scope, Libro){
+  $scope.titulo = 'Practica 3 de Luis Enrique';
 
-function LibroCtrl($scope,$http,Libro){
+  $scope.libro = {};
+  Libro.getLibros();
+  $scope.libros = Libro.libros;
+  $scope.libros_ind = {};
+  $scope.libros_edit = {};
 
-	$scope.libro = {};
-	/*$scope.libros = [{titulo:'Relatos de un viejo indecente', autor:'Bukowski',anio:2010},
-					{titulo:'Música acuática', autor:'TC Boyle',anio:2005}	
-					];*/
-	$scope.libros = Libro.libros;
-	/*$scope.addLibro = function(){
-		if($scope.libro)
-			$scope.libros.push($scope.libro);
-		$scope.libro = {};
-	};*/
-
-	$scope.getLibros = function(){
-		Libro.getLibros();
-		$scope.libros = Libro.libros;
-	};
-
-	$scope.addLibro = function(){
-		console.log($scope.libro);
-		Libro.addLibro($scope.libro);
-		//$scope.libro = {};
-	};
-
-	$scope.showInfo = function(l){
-		console.log(JSON.stringify(l));
-	};
-
-}
+  $scope.addLibro = function () {
+      Libro.addLibro($scope.libro);
+      $scope.libro = {};
+  };
+  $scope.showLibro = function (id) {
+      Libro.libros_edit={};
+      $scope.libro = {};
+      Libro.showLibro(id);
+      $scope.libro = Libro.libros_edit;
+  };
+  $scope.getLibros = function(){
+        Libro.getLibros();
+        $scope.libros = Libro.libros;
+  };
+  $scope.findLibro = function(id){
+        Libro.libros_ind={};
+        $scope.libro = {};
+        Libro.findLibro(id);
+        $scope.libro = Libro.libros_ind;
+  };
+  $scope.updateLibro = function(libro){
+        Libro.updateLibro(libro);
+        $scope.libro = {};
+  };
+  $scope.deleteLibro = function(id){
+        Libro.deleteLibro(id);
+        $scope.libro = {};
+  };
+};

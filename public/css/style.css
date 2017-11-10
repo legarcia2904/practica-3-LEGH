@@ -1,8 +1,16 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 30px;
+  font: 14px "Arial Narrow", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #ff8211;
+}
+
+.button {
+  display:inline-table;
+  font-size:1.00em;
+  padding:8px 0;
+  text-align:center;
+  width:120px;
 }

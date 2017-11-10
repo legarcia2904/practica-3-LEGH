@@ -1,12 +1,12 @@
 {
-  "name": "ejemploapi",
-  "description": "",
+  "name": "practica_3_legh",
+  "description": "Integrando las vistas con AngularJS a la aplicacion",
   "main": "",
   "authors": [
-    "Dago Cruz <dago.crusa@gmail.com>"
+    "Luis Enrique Garcia <legarcia2904@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/dagocruz/ejemplo-MongoDB",
+  "homepage": "https://github.com/legarcia2904/practica-3-LEGH",
   "dependencies": {
     "angular": "^1.6.6",
     "bootstrap": "^3.3.7",
