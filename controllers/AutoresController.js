@@ -24,7 +24,6 @@ exports.addAutor = function(req, res, next){
     var autor = new Autores({
         nombre :req.body.nombre,
         apellidos : req.body.apellidos,
-        nacionalidad : req.body.nacionalidad,
     });
     autor.save(function (err, autors) {
         if(err) return res.status(403).jsonp({error:'403', info:err.message});
@@ -70,7 +69,6 @@ exports.updateAutor = function (req, res, next) {
                }else{
                    req.body.nombre?autor.nombre = req.body.nombre:null;
                    req.body.apellidos?autor.apellidos = req.body.apellidos:null;
-                   req.body.nacionalidad?autor.nacionalidad = req.body.nacionalidad:null;
 
                    autor.save(function (err, autor) {
                        if(err) return res.status(403).jsonp({error:'403', info:err.message});
